@@ -13,6 +13,11 @@ struct CVView: View {
     @State var showingExporter = false
     @State var scanRate : String = "0.02" //volts/second
     @ObservedObject var bleManager : BLEManager
+    @State var startTestClicked = false
+    
+    @State var scanRateIsTwenty = false
+    @State var scanRateIsFifty = false
+    @State var scanRateIsHundred = false
     
     //var document : Document = Document(message: "")
     
@@ -31,17 +36,20 @@ struct CVView: View {
                 Button("0.02 V/s") {
                     print("0.02 V/s")
                     scanRate = "0.02"
-                }
+                    scanRateIsTwenty = true
+                }.disabled(scanRateIsTwenty)
                 Spacer()
                 Button("0.05 V/s") {
                     print("0.05 V/s")
                     scanRate = "0.05"
-                }
+                    scanRateIsFifty = true
+                }.disabled(scanRateIsFifty)
                 Spacer()
                 Button("0.10 V/s") {
                     print("0.10 V/s")
                     scanRate = "0.1"
-                }
+                    scanRateIsHundred = true
+                }.disabled(scanRateIsHundred)
             }.padding()
             Spacer()
             HStack {
@@ -51,7 +59,8 @@ struct CVView: View {
                     print("start CV test clicked")
                     bleManager.method = 2
                     bleManager.sendMessage(msg: "f3ac" + "-0.1" + "\t" + "0.5" + "\t" + "\(scanRate)" + "\t" + "10" + "\t")
-                }.padding().font(.title2).overlay(Capsule(style: .continuous)
+                    startTestClicked = true
+                }.padding().disabled(startTestClicked).font(.title2).overlay(Capsule(style: .continuous)
                     .stroke(Color.blue, lineWidth: 3)
                 )
                 Spacer()
