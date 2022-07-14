@@ -19,14 +19,14 @@ struct EISView: View {
     
     var body: some View {
         VStack {
-            if (bleManager.cycleOver){
-                Color.green.opacity(0.5)
-                    .ignoresSafeArea()
-            }
             Text("EIS")
                 .font(.largeTitle)
             Text("Electrochemical Impedance Spectroscopy").font(.subheadline)
             Spacer()
+            if (bleManager.cycleOver){
+                Color.green.opacity(0.5)
+                    .ignoresSafeArea()
+            }
             VStack {
                 Text("Signal Amplitude:")
                     .font(.subheadline)
@@ -39,7 +39,7 @@ struct EISView: View {
                         ampIsTen = false
                     }.disabled(ampIsOne).padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     Spacer()
-                    Button("0.1V"){
+                    Button("0.1 V"){
                         print("0.1 V")
                         signalAmp = "0.1"
                         ampIsOne = false
