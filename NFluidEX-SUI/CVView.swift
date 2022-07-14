@@ -37,17 +37,23 @@ struct CVView: View {
                     print("0.02 V/s")
                     scanRate = "0.02"
                     scanRateIsTwenty = true
+                    scanRateIsFifty = false
+                    scanRateIsHundred = false
                 }.disabled(scanRateIsTwenty)
                 Spacer()
                 Button("0.05 V/s") {
                     print("0.05 V/s")
                     scanRate = "0.05"
+                    scanRateIsTwenty = false
                     scanRateIsFifty = true
+                    scanRateIsHundred = false
                 }.disabled(scanRateIsFifty)
                 Spacer()
                 Button("0.10 V/s") {
                     print("0.10 V/s")
                     scanRate = "0.1"
+                    scanRateIsTwenty = false
+                    scanRateIsFifty = false
                     scanRateIsHundred = true
                 }.disabled(scanRateIsHundred)
             }.padding()
