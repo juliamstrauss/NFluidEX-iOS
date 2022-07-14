@@ -19,19 +19,20 @@ struct CVView: View {
     @State var scanRateIsFifty = false
     @State var scanRateIsHundred = false
     
+    
     //var document : Document = Document(message: "")
     
     var body: some View {
         VStack (spacing: 10){
             Text("CV")
-                .font(.title)
+                .font(.largeTitle)
+            Text("Cyclic Voltammetry").font(.subheadline)
             Spacer()
             Text("Potential range:")
-                .font(.subheadline)
             Text("-0.1 V to 0.5 V")
             Spacer()
             Text("Scan rate:")
-                .font(.subheadline)
+                
             HStack {
                 Button("0.02 V/s") {
                     print("0.02 V/s")
@@ -39,7 +40,7 @@ struct CVView: View {
                     scanRateIsTwenty = true
                     scanRateIsFifty = false
                     scanRateIsHundred = false
-                }.disabled(scanRateIsTwenty)
+                }.disabled(scanRateIsTwenty).padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("0.05 V/s") {
                     print("0.05 V/s")
@@ -47,7 +48,7 @@ struct CVView: View {
                     scanRateIsTwenty = false
                     scanRateIsFifty = true
                     scanRateIsHundred = false
-                }.disabled(scanRateIsFifty)
+                }.disabled(scanRateIsFifty).padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 Spacer()
                 Button("0.10 V/s") {
                     print("0.10 V/s")
@@ -55,8 +56,8 @@ struct CVView: View {
                     scanRateIsTwenty = false
                     scanRateIsFifty = false
                     scanRateIsHundred = true
-                }.disabled(scanRateIsHundred)
-            }.padding()
+                }.disabled(scanRateIsHundred).padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            }.padding().background(Rectangle().fill(Color(red: 0.84, green: 0.92, blue: 1.0)))
             Spacer()
             HStack {
                 Spacer()
@@ -84,10 +85,9 @@ struct CVView: View {
                     }
                  }
                 
-                
             }.padding()
             
-        }
+        }.padding()
     }
     public mutating func exportData() {
         var dataString : String = ""
