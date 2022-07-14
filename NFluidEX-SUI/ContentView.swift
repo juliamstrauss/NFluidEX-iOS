@@ -18,6 +18,7 @@ struct ContentView: View {
             VStack(alignment: .center, spacing: 10) {
                 Text("NFluidEX")
                     .font(.title)
+                    .fontWeight(.semibold)
                     .foregroundColor(.black)
 
                 Image("mcgill_university_logo")
@@ -73,11 +74,16 @@ struct ContentView: View {
                 Text("Bluetooth off")
                     .foregroundColor(.red)
             }
-            Button("Find devices") {
-                print("find devices clicked")
+            Button("Find device") {
+                print("find device clicked")
                 self.bleManager.startScanning()
             }
             .disabled(bleManager.nfluidexFound)
+            .shadow(radius: /*@START_MENU_TOKEN@*/9/*@END_MENU_TOKEN@*/)
+            .padding()
+            .overlay(Capsule(style: .continuous)
+                .stroke(Color.blue, lineWidth: 3)
+        )
     
             
         }.padding()

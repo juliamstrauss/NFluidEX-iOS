@@ -25,37 +25,38 @@ struct DPVView: View {
             VStack {
                 Text("Start voltage (V):")
                 HStack {
-                    Button("-0.2 V") {
+                    Button("-0.2") {
                         print("-0.2 V")
                         startV = "-0.2"
-                    }
+                    }.padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     Spacer()
-                    Button("-0.1 V") {
+                    Button("-0.1") {
                         print("-0.1 V")
                         startV = "-0.1"
-                    }
+                    }.padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     Spacer()
-                    Button("0 V") {
-                        print("0.10 V/s")
+                    Button("0") {
+                        print("0.10 V")
                         startV = "0"
-                    }
+                    }.padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 }.padding()
                 Text("End voltage (V):")
                 HStack {
                     Button("0.4 V") {
-                        print("0.4 V")
+                        print("0.4")
                         endV = "0.4"
-                    }
+                    }.padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     Spacer()
                     Button("0.5 V") {
-                        print("0.5 V")
+                        print("0.5")
                         endV = "0.5"
-                    }
+                    }.padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     Spacer()
                     Button("0.6 V") {
-                        print("0.6 V")
+                        print("0.6")
                         endV = "0.6"
                     }
+                    .padding().border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 }.padding()
             }.padding().background(Rectangle().fill(Color(red: 0.84, green: 0.92, blue: 1.0)))
             //Text("Step frequency:")
